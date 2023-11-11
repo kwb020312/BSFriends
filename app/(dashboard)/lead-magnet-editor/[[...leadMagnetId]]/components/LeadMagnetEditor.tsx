@@ -1,4 +1,7 @@
+"use client";
+
 import { useState } from "react";
+import LeadMagnetEditorNavbar from "./LeadMagnetEditorNavbar";
 
 export type LeadMagnetSections =
   | "content"
@@ -13,7 +16,7 @@ const LeadMagnetEditor = () => {
   return (
     <div className="flex h-screen w-full flex-col overflow-y-hidden">
       <LeadMagnetEditorNavbar />
-      <div className="flex h-full flex-row">
+      {/* <div className="flex h-full flex-row">
         <LeadMagnetEditorSidebar
           isSidebarCollapsed={isSidebarCollapsed}
           setSelectedEditor={setSelectedEditor}
@@ -26,7 +29,7 @@ const LeadMagnetEditor = () => {
           {selectedEditor === "profile" && <LeadMagnetProfileEditor />}
           {selectedEditor === "settings" && <LeadMagnetSettingsEditor />}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
