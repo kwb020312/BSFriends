@@ -50,7 +50,12 @@ const LeadMagnetTable = ({ leadMagnets, leads }: LeadMagnetTableProps) => {
       <TableBody>
         {leadMagnets.map((leadMagnet) => (
           <TableRow key={leadMagnet.id}>
-            <TableCell>{leadMagnet.name}</TableCell>
+            <Link
+              className="text-lg"
+              href={`/lead-magnet-editor/${leadMagnet.id}`}
+            >
+              <TableCell>{leadMagnet.name}</TableCell>
+            </Link>
             <TableCell>{leadMagnet.pageViews}</TableCell>
             <TableCell>{getLeadsForLeadMagnet(leadMagnet.id)}</TableCell>
             <TableCell>

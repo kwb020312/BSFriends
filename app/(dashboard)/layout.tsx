@@ -1,12 +1,13 @@
 import DashboardNavbar from "@/components/DashboardNavbar";
+import { Toaster } from "react-hot-toast";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <section className="flex flex-col h-full w-full">
+    <div className="flex flex-col h-full w-full">
       <DashboardNavbar />
-
-      <div className="flex-grow">{children}</div>
-    </section>
+      {children}
+      <Toaster />
+    </div>
   );
 };
 

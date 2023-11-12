@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import { Button } from "@/components/ui/button";
 import { useLeadMagnetEditorContext } from "@/context/LeadMagnetEditorContext";
 import Link from "next/link";
+import { useProfileEditorContext } from "@/context/ProfileEditorContext";
 
 function LeadMagnetEditorNavbar() {
   const router = useRouter();
