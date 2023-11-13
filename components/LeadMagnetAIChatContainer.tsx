@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import RiseLoader from "react-spinners/RiseLoader";
 import { useChat } from "ai/react";
-import LeadMagnetEmailCaptureModal from "./LeadMagnetEmailCaptureModal";
+// import LeadMagnetEmailCaptureModal from "./LeadMagnetEmailCaptureModal";
 
 interface LeadMagnetAIChatContainerProps {
   leadMagnetId: string;
@@ -111,14 +111,14 @@ function LeadMagnetAIChatContainer({
           )}
         </button>
       </form>
-      {showEmailCaptureModal && (
+      {/* {showEmailCaptureModal && (
         <LeadMagnetEmailCaptureModal
           emailCapturePrompt={emailCapturePrompt}
           leadMagnetId={leadMagnetId}
           setHasCapturedUserInfo={setHasCapturedUserInfo}
           setShowEmailCaptureModal={setShowEmailCaptureModal}
         />
-      )}
+      )} */}
     </div>
   );
 }
