@@ -1,44 +1,45 @@
-import LeadMagnetEmailCapturePreview from "@/components/LeadMagnetEmailCapturePreview";
-import { useLeadMagnetEditorContext } from "@/context/LeadMagnetEditorContext";
+"use client";
+import React, { useState } from "react";
+import LeadMagnetEditorNavbar from "./LeadMagnetEditorNavbar";
+import LeadMagnetContentEditor from "./LeadMagnetContentEditor";
+import LeadMagnetEditorSidebar from "./LeadMagnetEditorSidebar";
+import LeadMagnetPromptEditor from "./LeadMagnetPromptEditor";
+import LeadMagnetEmailEditor from "./LeadMagnetEmailEditor";
 
-function LeadMagnetEmailEditor() {
-  const { edittedLeadMagnet, setEdittedLeadMagnet } =
-    useLeadMagnetEditorContext();
+export type LeadMagnetSections =
+  | "content"
+  | "prompt"
+  | "email"
+  | "profile"
+  | "settings";
+
+function LeadMagnetEditor() {
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [selectedEditor, setSelectedEditor] =
+    useState<LeadMagnetSections>("content");
 
   return (
-    <div className="flex h-full flex-row border-t-2 border-gray-200">
-      <div className="m-8 flex w-1/2 flex-col">
-        <h1 className="mb-4 text-3xl font-bold text-purple-500">
-          Email Capture Editor
-        </h1>
-        <div className="mb-4">
-          <label className="mb-2 block text-sm font-bold text-gray-700">
-            Email Capture Prompt
-          </label>
-          <input
-            type="text"
-            className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
-            value={edittedLeadMagnet.draftEmailCapture}
-            onChange={(e) =>
-              setEdittedLeadMagnet((prev) => ({
-                ...prev,
-                draftEmailCapture: e.target.value,
-              }))
-            }
-            placeholder="How to ask users for their email to chat with the AI?"
-          />
-        </div>
-      </div>
-      <div className="purple-dotted-pattern flex w-1/2 flex-col">
-        <div className="mx-12 my-8 flex max-w-lg rounded-lg bg-white p-4 shadow-lg lg:mx-auto">
-          <LeadMagnetEmailCapturePreview
-            leadMagnetId={edittedLeadMagnet.id}
-            emailCapturePrompt={edittedLeadMagnet.draftEmailCapture}
-          />
+    <div
+      className="flex h-screen w-full flex-col overflow-y-hidden"
+      style={{ height: `calc(100vh - 66px)` }}
+    >
+      <LeadMagnetEditorNavbar />
+      <div className="flex h-full flex-row">
+        <LeadMagnetEditorSidebar
+          isSidebarCollapsed={isSidebarCollapsed}
+          setSelectedEditor={setSelectedEditor}
+          setIsSidebarCollapsed={setIsSidebarCollapsed}
+        />
+        <div className="h-full flex-grow">
+          {selectedEditor === "content" && <LeadMagnetContentEditor />}
+          {selectedEditor === "prompt" && <LeadMagnetPromptEditor />}
+          {selectedEditor === "email" && <LeadMagnetEmailEditor />}
+          {/* {selectedEditor === "profile" && <LeadMagnetProfileEditor />}
+          {selectedEditor === "settings" && <LeadMagnetSettings />} */}
         </div>
       </div>
     </div>
   );
 }
 
-export default LeadMagnetEmailEditor;
+export default LeadMagnetEditor;
