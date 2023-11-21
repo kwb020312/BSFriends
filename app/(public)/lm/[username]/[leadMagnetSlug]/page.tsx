@@ -35,16 +35,16 @@ export async function generateMetadata({
     if (leadMagnet) {
       title = leadMagnet.publishedTitle;
       description = leadMagnet.publishedSubtitle;
-      openGraphImage = {
-        url: `https://image.thum.io/get/auth/${
-          process.env.SCREENSHOT_ACCESS_KEY ?? ""
-        }/width/1200/crop/700/https://www.leadconvert.ai/lm/${
-          account.username
-        }/${leadMagnet.slug}`,
-        width: 4096,
-        height: 4096,
-        alt: "Lead Magnet Preview",
-      };
+      // openGraphImage = {
+      //   url: `https://image.thum.io/get/auth/${
+      //     process.env.SCREENSHOT_ACCESS_KEY ?? ""
+      //   }/width/1200/crop/700/https://www.leadconvert.ai/lm/${
+      //     account.username
+      //   }/${leadMagnet.slug}`,
+      //   width: 4096,
+      //   height: 4096,
+      //   alt: "Lead Magnet Preview",
+      // };
     }
   }
 
