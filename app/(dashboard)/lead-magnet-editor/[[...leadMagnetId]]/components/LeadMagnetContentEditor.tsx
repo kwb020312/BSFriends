@@ -1,4 +1,5 @@
 import { Input } from "@/components/ui/input";
+import { useLeadMagnetEditorContext } from "@/context/LeadMagnetEditorContex";
 import React, { useEffect } from "react";
 import { Editor, EditorContent } from "@tiptap/react";
 import BulletList from "@tiptap/extension-bullet-list";
@@ -13,7 +14,6 @@ import CodeBlock from "@tiptap/extension-code-block";
 import OrderedList from "@tiptap/extension-ordered-list";
 import History from "@tiptap/extension-history";
 import LeadMagnetContentPreview from "./LeadMagnetContentPreview";
-import { useLeadMagnetEditorContext } from "@/context/LeadMagnetEditorContext";
 
 function LeadMagnetContentEditor() {
   const { edittedLeadMagnet, setEdittedLeadMagnet } =

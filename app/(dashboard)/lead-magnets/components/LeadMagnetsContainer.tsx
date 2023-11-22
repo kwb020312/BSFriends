@@ -6,12 +6,12 @@ import Link from "next/link";
 import React from "react";
 import LeadMagnetTable from "./LeadMagnetTable";
 import { getPayingStatus } from "@/utils/stripe";
+import { MAXIMUM_FREE_LEAD_MAGNETS } from "@/lib/constants";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { HiOutlineSparkles } from "react-icons/hi";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import { MAXIMUM_FREE_LEAD_MAGNETS } from "@/lib/contants";
 
 interface LeadMagnetsContainerProps {
   leadMagnets: LeadMagnet[];

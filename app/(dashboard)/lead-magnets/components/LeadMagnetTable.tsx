@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import {
   Table,
   TableBody,
@@ -6,16 +7,16 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import Link from "next/link";
 import { Lead, LeadMagnet } from "@prisma/client";
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import React from "react";
 
 interface LeadMagnetTableProps {
   leadMagnets: LeadMagnet[];
   leads: Lead[];
 }
 
-const LeadMagnetTable = ({ leadMagnets, leads }: LeadMagnetTableProps) => {
+function LeadMagnetTable({ leadMagnets, leads }: LeadMagnetTableProps) {
   const getLeadsForLeadMagnet = (leadMagnetId: string): number => {
     const leadsForLeadMagnet = leads.filter(
       (lead) => lead.leadMagnetId === leadMagnetId
@@ -41,21 +42,23 @@ const LeadMagnetTable = ({ leadMagnets, leads }: LeadMagnetTableProps) => {
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead className="text-lg">이름</TableHead>
-          <TableHead className="text-lg">페이지 방문자</TableHead>
-          <TableHead className="text-lg">리즈</TableHead>
-          <TableHead className="text-lg">평가</TableHead>
+          <TableHead className="text-lg">Name</TableHead>
+          <TableHead className="text-lg">Page Visits</TableHead>
+          <TableHead className="text-lg">Leads</TableHead>
+          <TableHead className="text-lg">Conversion Rate</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         {leadMagnets.map((leadMagnet) => (
           <TableRow key={leadMagnet.id}>
-            <Link
-              className="text-lg"
-              href={`/lead-magnet-editor/${leadMagnet.id}`}
-            >
-              <TableCell>{leadMagnet.name}</TableCell>
-            </Link>
+            <TableCell>
+              <Link
+                className="text-lg"
+                href={`/lead-magnet-editor/${leadMagnet.id}`}
+              >
+                {leadMagnet.name}
+              </Link>
+            </TableCell>
             <TableCell>{leadMagnet.pageViews}</TableCell>
             <TableCell>{getLeadsForLeadMagnet(leadMagnet.id)}</TableCell>
             <TableCell>
@@ -63,8 +66,8 @@ const LeadMagnetTable = ({ leadMagnets, leads }: LeadMagnetTableProps) => {
             </TableCell>
             <TableCell>
               <Link href={`/leads/${leadMagnet.id}`}>
-                <Button className="font-normal" variant={"link"}>
-                  끌어온 조회수
+                <Button className="font-normal" variant="link">
+                  View Leads
                 </Button>
               </Link>
             </TableCell>
@@ -73,6 +76,6 @@ const LeadMagnetTable = ({ leadMagnets, leads }: LeadMagnetTableProps) => {
       </TableBody>
     </Table>
   );
-};
+}
 
 export default LeadMagnetTable;

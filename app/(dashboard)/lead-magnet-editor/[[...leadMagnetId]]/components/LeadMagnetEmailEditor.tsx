@@ -1,5 +1,5 @@
 import LeadMagnetEmailCapturePreview from "@/components/LeadMagnetEmailCapturePreview";
-import { useLeadMagnetEditorContext } from "@/context/LeadMagnetEditorContext";
+import { useLeadMagnetEditorContext } from "@/context/LeadMagnetEditorContex";
 import React from "react";
 
 function LeadMagnetEmailEditor() {

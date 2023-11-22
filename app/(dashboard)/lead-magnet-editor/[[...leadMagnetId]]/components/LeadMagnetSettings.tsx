@@ -1,4 +1,4 @@
-import { useLeadMagnetEditorContext } from "@/context/LeadMagnetEditorContext";
+import { useLeadMagnetEditorContext } from "@/context/LeadMagnetEditorContex";
 import { slugifyLeadMagnet } from "@/lib/utils";
 import React from "react";
 

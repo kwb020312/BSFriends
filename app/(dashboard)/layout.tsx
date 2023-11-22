@@ -1,7 +1,11 @@
 import DashboardNavbar from "@/components/DashboardNavbar";
 import { Toaster } from "react-hot-toast";
 
-const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <div className="flex flex-col h-full w-full">
       <DashboardNavbar />
@@ -9,6 +13,4 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       <Toaster />
     </div>
   );
-};
-
-export default DashboardLayout;
+}

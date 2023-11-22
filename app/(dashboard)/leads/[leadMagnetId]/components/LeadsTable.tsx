@@ -10,11 +10,7 @@ import { Lead } from "@prisma/client";
 import React from "react";
 import dayjs from "dayjs";
 
-interface LeadsTableProps {
-  leads: Lead[];
-}
-
-function LeadsTable({ leads }: LeadsTableProps) {
+function LeadsTable({ leads }: { leads: Lead[] }) {
   return (
     <>
       <Table>

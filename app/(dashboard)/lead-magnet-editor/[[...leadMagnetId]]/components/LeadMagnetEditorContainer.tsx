@@ -1,12 +1,12 @@
 "use client";
 
+import { LeadMagnetEditorContextProvider } from "@/context/LeadMagnetEditorContex";
 import { LeadMagnet } from "@prisma/client";
 import React from "react";
 import LeadMagnetEditor from "./LeadMagnetEditor";
 import { useSession } from "@clerk/nextjs";
 import LoadingScreen from "@/components/LoadingScreen";
 import { ProfileEditorContextProvider } from "@/context/ProfileEditorContext";
-import { LeadMagnetEditorContextProvider } from "@/context/LeadMagnetEditorContext";
 
 interface LeadMagnetEditorContainerProps {
   leadMagnet: LeadMagnet;

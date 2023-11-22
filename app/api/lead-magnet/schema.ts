@@ -1,31 +1,29 @@
 import { z } from "zod";
 
 export const leadMagnetCreateRequest = z.object({
-  name: z.string({ required_error: "사용자 이름이 필요합니다." }),
-  status: z.string({ required_error: "상태코드가 필요합니다." }),
-  draftBody: z.string({ required_error: "내용이 필요합니다." }),
-  draftTitle: z.string({ required_error: "제목이 필요합니다." }),
-  draftSubtitle: z.string({ required_error: "부제목이 필요합니다." }),
-  draftPrompt: z.string({ required_error: "사용자 명령이 필요합니다." }),
+  name: z.string({ required_error: "Name is required" }),
+  status: z.string({ required_error: "Status is required" }),
+  draftBody: z.string({ required_error: "Draft body is required" }),
+  draftTitle: z.string({ required_error: "Draft title is required" }),
+  draftSubtitle: z.string({ required_error: "Draft subtitle is required" }),
+  draftPrompt: z.string({ required_error: "Draft prompt is required" }),
   draftFirstQuestion: z.string({
-    required_error: "첫번째 질문이 필요합니다.",
+    required_error: "Draft first question is required",
   }),
-  publishedBody: z.string({ required_error: "공개 내용이 필요합니다." }),
-  publishedTitle: z.string({ required_error: "공개 제목이 필요합니다." }),
+  publishedBody: z.string({ required_error: "Published body is required" }),
+  publishedTitle: z.string({ required_error: "Published title is required" }),
   publishedSubtitle: z.string({
-    required_error: "공개 부제목이 필요합니다.",
+    required_error: "Published subtitle is required",
   }),
-  publishedPrompt: z.string({
-    required_error: "공개 사용자 명령이 필요합니다.",
-  }),
+  publishedPrompt: z.string({ required_error: "Published prompt is required" }),
   publishedFirstQuestion: z.string({
-    required_error: "공개 첫 질문이 필요합니다.",
+    required_error: "Published first question is required",
   }),
   draftEmailCapture: z.string({
-    required_error: "첫 이메일이 필요합니다.",
+    required_error: "Draft email capture is required",
   }),
   publishedEmailCapture: z.string({
-    required_error: "공개 이메일이 필요합니다.",
+    required_error: "Published email capture is required",
   }),
   slug: z.string({ required_error: "Slug is required" }),
 });

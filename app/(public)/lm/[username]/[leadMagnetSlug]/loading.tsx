@@ -1,7 +1,8 @@
 import LoadingScreen from "@/components/LoadingScreen";
+import React from "react";
 
-const LeadMagnetLoading = () => {
+function LeadMagnetLoading() {
   return <LoadingScreen />;
-};
+}
 
 export default LeadMagnetLoading;

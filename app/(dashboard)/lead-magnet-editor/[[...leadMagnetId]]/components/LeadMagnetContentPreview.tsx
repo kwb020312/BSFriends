@@ -1,3 +1,5 @@
+import React from "react";
+
 interface LeadMagnetContentPreviewProps {
   title: string;
   subtitle?: string;
