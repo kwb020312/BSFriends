@@ -6,9 +6,9 @@ import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import toast from "react-hot-toast";
 import { Button } from "@/components/ui/button";
-import { useLeadMagnetEditorContext } from "@/context/LeadMagnetEditorContext";
 import Link from "next/link";
 import { useProfileEditorContext } from "@/context/ProfileEditorContext";
+import { useLeadMagnetEditorContext } from "@/context/LeadMagnetEditorContext";
 
 function LeadMagnetEditorNavbar() {
   const router = useRouter();
@@ -50,6 +50,7 @@ function LeadMagnetEditorNavbar() {
     setSaving(true);
     try {
       await saveLeadMagnet();
+      await saveProfile();
       toast.success("Saved!");
     } catch (error) {
       console.log(error);
@@ -151,28 +152,28 @@ function LeadMagnetEditorNavbar() {
         {/* Delete with state */}
         {edittedLeadMagnet.id && (
           <Button onClick={handleDelete} variant="destructive">
-            {deleting ? "삭제중..." : "삭제"}
+            {deleting ? "Deleting" : "Delete"}
           </Button>
         )}
         {/* Unpublish and View Final LM */}
         {edittedLeadMagnet.status === "published" && (
           <>
             <Button variant="outline" onClick={handleUnpublish}>
-              {unpublishing ? "비공개 전환중..." : "비공개"}
+              {unpublishing ? "Unpublishing..." : "Unpublish"}
             </Button>
             {account && (
               <Link href={`/lm/${account?.username}/${edittedLeadMagnet.slug}`}>
-                <Button variant="outline">공개목록 조회</Button>
+                <Button variant="outline">View Published</Button>
               </Link>
             )}
           </>
         )}
         {/* Save & Publish with state */}
         <Button variant="outline" onClick={handleSave}>
-          {saving ? "저장중..." : "저장"}
+          {saving ? "Saving..." : "Save"}
         </Button>
         <Button onClick={handlePublish}>
-          {publishing ? "공개..." : "공개"}
+          {publishing ? "Publishing..." : "Publish"}
         </Button>
       </div>
     </div>
